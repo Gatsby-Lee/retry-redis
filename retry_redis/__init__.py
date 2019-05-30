@@ -3,6 +3,8 @@
 :since: 2019-05-29
 """
 
-from retry_redis.decorated_redis import *
+from retry_redis.decorated_redis import Redis
 
-__version__ = '1.0'
+__all__ = (
+    'Redis',
+)
