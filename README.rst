@@ -11,6 +11,25 @@ retry-redis
 Redis Clieht with customizable retrying capability.
 
 
+Why did I build this?
+---------------------
+
+There are Redis exceptions like below that can be handled by simply retrying it.
+
+This package is built in order to help people who need to solve same problem.
+
+* redis.exceptions.ConnectionError
+* redis.exceptions.ResponseError
+* redis.exceptions.TimeoutError
+
+
+Who should use?
+---------------
+
+Anybody who wants to have retry logic with Redis.
+
+
+
 How to Install
 --------------
 
