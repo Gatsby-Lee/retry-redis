@@ -8,6 +8,14 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
+with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
+    requires = [row.strip() for row in f.readlines()]
+
+dev_requires = [
+    'bpython',
+    'pytest',
+    'flake8',
+]
 
 setup(
     name='retry-redis',
@@ -65,5 +73,8 @@ setup(
     # requirements files see:
     # https://packaging.python.org/en/latest/technical.html#install-requires-vs-requirements-files
     python_requires=">=3.6",
-    install_requires=['redis', 'tenacity'],
+    install_requires=requires,
+    extras_require={
+        'dev': dev_requires,
+    },
 )
