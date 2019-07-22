@@ -24,7 +24,7 @@ DEFAULT_RETRY_EXCEPTIONS = (
 
 DEFAULT_RETRY_DECORATOR = retry(
     retry=retry_if_exception_type(DEFAULT_RETRY_EXCEPTIONS),
-    wait=wait_exponential(multiplier=1, min=1, max=10),
+    wait=wait_exponential(multiplier=1),
     stop=stop_after_attempt(3),
     after=after_log(LOGGER, logging.DEBUG)
 )

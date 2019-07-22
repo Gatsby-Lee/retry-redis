@@ -17,6 +17,10 @@ dev_requires = [
     'flake8',
 ]
 
+test_requires = [
+    'pytest',
+]
+
 setup(
     name='retry-redis',
 
@@ -76,5 +80,6 @@ setup(
     install_requires=requires,
     extras_require={
         'dev': dev_requires,
+        'test': test_requires,
     },
 )
