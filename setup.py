@@ -16,9 +16,12 @@ with open(path.join(here, 'retry_redis/__about__.py'), encoding='utf-8') as f:
     exec(f.read(), version)
 
 dev_requires = [
+    'wheel',
     'bpython',
     'pytest',
     'flake8',
+    'autopep8',
+    'pylint'
 ]
 
 test_requires = [
