@@ -11,6 +11,10 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
     requires = [row.strip() for row in f.readlines()]
 
+version = {}
+with open(path.join(here, 'retry_redis/__about__.py'), encoding='utf-8') as f:
+    exec(f.read(), version)
+
 dev_requires = [
     'bpython',
     'pytest',
@@ -27,7 +31,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
-    version='1.1.2',
+    version=version['__version__'],
 
     description='Redis Clieht with customizable retrying capability.',
     long_description=long_description,
