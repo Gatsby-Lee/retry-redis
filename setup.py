@@ -8,12 +8,14 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f:
-    requires = [row.strip() for row in f.readlines()]
-
 version = {}
 with open(path.join(here, 'retry_redis/__about__.py'), encoding='utf-8') as f:
     exec(f.read(), version)
+
+requires = [
+    'redis',
+    'tenacity',
+]
 
 dev_requires = [
     'wheel',
