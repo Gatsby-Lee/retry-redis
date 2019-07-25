@@ -36,6 +36,7 @@ from tenacity import (
     wait_random_exponential,
     after_log,
     before_log,
+    before_sleep_log,
 )
 
 __all__ = (
@@ -70,4 +71,5 @@ __all__ = (
     # logging
     'after_log',
     'before_log',
+    'before_sleep_log',
 )

@@ -7,11 +7,11 @@ import logging
 import redis
 
 from retry_redis.retry_decorator import (
+    before_sleep_log,
     retry,
     retry_if_exception_type,
-    wait_exponential,
     stop_after_attempt,
-    after_log,
+    wait_exponential,
 )
 
 LOGGER = logging.getLogger(__name__)
@@ -26,7 +26,8 @@ DEFAULT_RETRY_DECORATOR = retry(
     retry=retry_if_exception_type(DEFAULT_RETRY_EXCEPTIONS),
     wait=wait_exponential(multiplier=1),
     stop=stop_after_attempt(3),
-    after=after_log(LOGGER, logging.DEBUG)
+    before_sleep=before_sleep_log(LOGGER, logging.DEBUG),
+    reraise=True
 )
 
 
