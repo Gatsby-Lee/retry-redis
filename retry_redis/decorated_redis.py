@@ -16,14 +16,14 @@ from retry_redis.retry_decorator import (
 
 LOGGER = logging.getLogger(__name__)
 
-DEFAULT_RETRY_EXCEPTIONS = (
+RETRY_EXCEPTIONS = (
     redis.exceptions.ConnectionError,
     redis.exceptions.ResponseError,
     redis.exceptions.TimeoutError,
 )
 
-DEFAULT_RETRY_DECORATOR = retry(
-    retry=retry_if_exception_type(DEFAULT_RETRY_EXCEPTIONS),
+RETRY_DECORATOR = retry(
+    retry=retry_if_exception_type(RETRY_EXCEPTIONS),
     wait=wait_exponential(multiplier=1),
     stop=stop_after_attempt(3),
     before_sleep=before_sleep_log(LOGGER, logging.DEBUG),
@@ -39,7 +39,7 @@ class Redis(object):
         custom arguments must not be added.
         """
         self._redis = redis.Redis(**kwargs)
-        self._retry_decorator = DEFAULT_RETRY_DECORATOR
+        self._retry_decorator = RETRY_DECORATOR
 
     def __repr__(self):
         return "%s<%s>" % (type(self).__name__, repr(self._redis))

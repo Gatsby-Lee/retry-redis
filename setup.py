@@ -17,17 +17,17 @@ requires = [
     'tenacity',
 ]
 
-dev_requires = [
+test_requires = [
+    'pytest',
+]
+
+dev_requires = test_requires + [
     'wheel',
     'bpython',
     'pytest',
     'flake8',
     'autopep8',
     'pylint'
-]
-
-test_requires = [
-    'pytest',
 ]
 
 setup(
