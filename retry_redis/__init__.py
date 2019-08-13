@@ -4,9 +4,9 @@
 """
 from retry_redis.__about__ import __version__
 from retry_redis.decorated_redis import (
-    DEFAULT_RETRY_EXCEPTIONS,
     Redis,
 )
+
 
 def int_or_str(value):
     try:
@@ -21,6 +21,5 @@ VERSION = tuple(map(int_or_str, __version__.split('.')))
 __all__ = (
     '__version__',
     'VERSION',
-    'DEFAULT_RETRY_EXCEPTIONS',
     'Redis',
 )
