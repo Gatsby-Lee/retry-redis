@@ -11,7 +11,7 @@
 retry-redis
 ===========
 
-Redis Clieht with customizable retrying capability.
+Redis Client with customizable retrying capability.
 
 
 Why did I build this?
